@@ -1,6 +1,6 @@
 {
   "name": "react-hoc-di",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Dependency-inject a module using react higher-order components (HOCs)",
   "dependencies": {
     "react": "^17.0.2"

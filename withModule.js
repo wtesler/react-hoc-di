@@ -39,7 +39,7 @@ export default function withModule(WrappedComponent, newModules = []) {
       if (!areModulesReady) {
         return null;
       }
-      return <WrappedComponent {...props} module={rootModule}/>;
+      return React.createElement(WrappedComponent, Object.assign({}, props, { module: rootModule }));
     }, [props, areModulesReady]);
 
     return content;
