@@ -1,20 +1,9 @@
 {
   "name": "react-hoc-di",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dependency-inject a module using react higher-order components (HOCs)",
-  "scripts": {
-    "lint": "eslint ./"
-  },
   "dependencies": {},
-  "devDependencies": {
-    "cross-env": "7.0.3",
-    "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "eslint-plugin-react": "^7.25.1"
-  },
+  "devDependencies": {},
   "keywords": [
     "react",
     "dependency-inject",

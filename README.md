@@ -1,5 +1,6 @@
 ## react-hoc-di
 
+
 Wrap your component in `withModule` to have `props.module` injected into your components.
 
 Objects in the module may persist outside the component scope.
@@ -9,7 +10,11 @@ of the given modules bound to the component.
 
 `props.module` is a composite of all added modules.
 
-Often looks like this:
+Import looks like:
+
+`import withModule from "react-hoc-di/withModule";`
+
+Usage often looks like this:
 
 `export default withModule(MyScreen, MyModule);`
 
