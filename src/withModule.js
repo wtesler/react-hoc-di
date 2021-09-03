@@ -1,5 +1,5 @@
 import {useEffect, useMemo, useState} from "react";
-import rootModule from "./Internal/RootModule";
+import rootModule from "./internal/RootModule";
 import React from 'react';
 
 /**

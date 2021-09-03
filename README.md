@@ -53,3 +53,7 @@ class MyModule {
 
 export default MyModule;
 ```
+
+### For Developer
+
+Remember to npm run build before deploying.
