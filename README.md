@@ -5,6 +5,8 @@ Wrap your component in `withModule` to have `props.module` injected into your co
 
 Objects in the module may persist outside the component scope.
 
+Avoids needless piping of objects through the props of components.
+
 You may pass in additional modules into `withModule` to have the lifecycle
 of the given modules bound to the component.
 
