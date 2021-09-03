@@ -1,5 +1,6 @@
 import {useEffect, useMemo, useState} from "react";
 import rootModule from "./Internal/RootModule";
+import React from 'react';
 
 /**
  * Inserts a `props.module` into the component.
