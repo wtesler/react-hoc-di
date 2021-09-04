@@ -21,17 +21,30 @@ export default function withModule(WrappedComponent, newModules = []) {
     const [areModulesReady, setAreModulesReady] = useState(newModules.length === 0);
 
     useEffect(() => {
-      const modules = [];
+      const createdModules = [];
+      const removeRefs = [];
       for (const newModule of newModules) {
-        const moduleRef = newModule(rootModule);
-        modules.push(moduleRef);
+        const [createdModule, removeRef] = newModule(rootModule);
+        for (const key of Object.keys(createdModule)) {
+          if (key in rootModule) {
+            throw new Error(`${key} is already defined higher up in the hierarchy.`);
+          }
+          rootModule[key] = createdModule[key];
+        }
+        createdModules.push(createdModule);
+        removeRefs.push(removeRef);
       }
       setAreModulesReady(true);
 
       return () => {
-        for (const moduleRef of modules) {
-          if (moduleRef) {
-            moduleRef();
+        for (let i = 0; i < createdModules.length; i++) {
+          const createdModule = createdModules[i];
+          const removeRef = removeRefs[i];
+          for (const key of Object.keys(createdModule)) {
+            delete rootModule[key];
+          }
+          if (removeRef) {
+            removeRef();
           }
         }
       }

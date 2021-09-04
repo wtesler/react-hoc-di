@@ -14,7 +14,7 @@ of the given modules bound to the component.
 
 Import looks like:
 
-`import withModule from "react-hoc-di/withModule";`
+`import {withModule} from "react-hoc-di";`
 
 Usage often looks like this:
 
@@ -37,13 +37,12 @@ The shell of a module looks like this:
 ```
 const MyModule = (rootModule) => {
   const module = {
-  }
+  };
 
-  rootModule.set(module);
-
-  return () => {
-    rootModule.unset(module);
-  }
+  return [
+    module,
+    () => {}
+  ]
 }
 
 export default MyModule;
