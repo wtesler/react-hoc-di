@@ -27,9 +27,10 @@ export default function withModule(WrappedComponent, newModules = []) {
         const [createdModule, removeRef] = newModule(rootModule);
         for (const key of Object.keys(createdModule)) {
           if (key in rootModule) {
-            throw new Error(`${key} is already defined higher up in the hierarchy.`);
+            console.warn(`${key} is already defined higher up in the hierarchy.`);
+          } else {
+            rootModule[key] = createdModule[key];
           }
-          rootModule[key] = createdModule[key];
         }
         createdModules.push(createdModule);
         removeRefs.push(removeRef);
