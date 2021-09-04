@@ -30,24 +30,19 @@ or
 
 ### Modules
 
-Modules always define a `construct` and `destruct` function.
-
-Note `construct` is not the same as `constructor`.
+Modules always call `set` and `unset` on the rootModule.
 
 The shell of a module looks like this:
 
 ```
-class MyModule {
-  constructor(rootModule) {
-    this.rootModule = rootModule;
+const MyModule = (rootModule) => {
+  const module = {
   }
 
-  construct() {
-  // Set objects onto root module.
-  }
+  rootModule.set(module);
 
-  destruct() {
-    // Remove those objects from root module.
+  return () => {
+    rootModule.unset(module);
   }
 }
 

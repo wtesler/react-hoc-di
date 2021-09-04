@@ -1,5 +1,5 @@
 import {useEffect, useMemo, useState} from "react";
-import rootModule from "./internal/RootModule";
+import rootModule from "./RootModule";
 import React from 'react';
 
 /**
@@ -23,26 +23,25 @@ export default function withModule(WrappedComponent, newModules = []) {
     useEffect(() => {
       const modules = [];
       for (const newModule of newModules) {
-        const module = new newModule(rootModule);
-        module.construct();
-        modules.push(module);
+        const moduleRef = newModule(rootModule);
+        modules.push(moduleRef);
       }
       setAreModulesReady(true);
 
       return () => {
-        for (const module of modules) {
-          module.destruct();
+        for (const moduleRef of modules) {
+          if (moduleRef) {
+            moduleRef();
+          }
         }
       }
     }, []);
 
-    const content = useMemo(() => {
+    return useMemo(() => {
       if (!areModulesReady) {
         return null;
       }
       return React.createElement(WrappedComponent, Object.assign({}, props, { module: rootModule }));
     }, [props, areModulesReady]);
-
-    return content;
   };
 }
