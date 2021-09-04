@@ -1,6 +1,6 @@
 {
   "name": "react-hoc-di",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Dependency-inject a module using react higher-order components (HOCs)",
   "scripts": {
     "build": "npm run clean && babel src --out-dir dist --copy-files",
@@ -23,11 +23,21 @@
   ],
   "babel": {
     "presets": [
-      "@babel/preset-env",
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry",
+          "corejs": 3
+        }
+      ],
       "@babel/preset-react"
     ],
     "plugins": []
   },
+  "browserslist": [
+    ">0.25%",
+    "not dead"
+  ],
   "keywords": [
     "react",
     "dependency-inject",
