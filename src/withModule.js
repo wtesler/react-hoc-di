@@ -1,6 +1,10 @@
 import {useEffect, useMemo, useState} from "react";
-import rootModule from "./RootModule";
 import React from 'react';
+
+// Global singleton which acts as the composite module which gets injected into components.
+if (!globalThis.hoc_di_module) {
+  globalThis.hoc_di_module = {};
+}
 
 /**
  * Inserts a `props.module` into the component.
@@ -10,6 +14,8 @@ import React from 'react';
  */
 export default function withModule(WrappedComponent, newModules = []) {
   return props => {
+    const rootModule = globalThis.hoc_di_module;
+
     if (!newModules) {
       newModules = [];
     }
