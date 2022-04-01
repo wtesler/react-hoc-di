@@ -1,13 +1,13 @@
 {
   "name": "react-hoc-di",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Dependency-inject a module using react higher-order components (HOCs)",
   "scripts": {
     "build": "npm run clean && babel src --out-dir dist --copy-files",
     "clean": "rimraf dist"
   },
   "peerDependencies": {
-    "react": "^17"
+    "react": "^18"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",
@@ -49,5 +49,6 @@
     "type": "git",
     "url": "https://github.com/wtesler/react-hoc-di.git"
   },
-  "homepage": "https://github.com/wtesler/react-hoc-di"
+  "homepage": "https://github.com/wtesler/react-hoc-di",
+  "dependencies": {}
 }
